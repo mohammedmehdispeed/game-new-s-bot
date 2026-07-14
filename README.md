@@ -131,3 +131,9 @@ You can also add traditional RSS feeds as a backup or additional source:
 ```bash
 git clone https://github.com/yourusername/game-news-bot.git
 cd game-news-bot
+## 🚧 Project Status
+
+This project is **under active development**. Features are being added and improved continuously.
+
+**Current Status:** Beta / MVP (Minimum Viable Product)
+**Next Milestone:** v1.0 Stable Release
