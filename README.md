@@ -46,28 +46,37 @@
 ---
 
 ## 🏗️ Architecture Overview
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ │
+│ ┌─────────────────────┐ ┌─────────────────┐ ┌─────────────────┐ │
+│ │ X (Twitter) API │ │ │ │ │ │
+│ │ - Search Posts │────▶│ n8n │────▶│ AI Translation │ │
+│ │ - News Lookup │ │ Workflow │ │ (OpenAI, etc.) │ │
+│ └─────────────────────┘ └─────────────────┘ └─────────────────┘ │
+│ ┌─────────────────────┐ │ │
+│ │ RSS Feeds │ │ │
+│ │ - IGN │──────────────┘ │
+│ │ - GameSpot │ │
+│ │ - PC Gamer │ │
+│ │ - Polygon │ │
+│ └─────────────────────┘ │ │
+│ ▼ │
+│ ┌─────────────────┐ │
+│ ┌─────────────────────┐ │ │ │
+│ │ GitHub Actions │────▶│ Telegram Bot │ │
+│ │ (Scheduler) │ │ (Publisher) │ │
+│ └─────────────────────┘ └─────────────────┘ │
+│ │
+└─────────────────────────────────────────────────────────────────────────────┘
+### How it works:
 
-┌─────────────────────┐ ┌─────────────────┐ ┌─────────────────┐
-│ X (Twitter) API │ │ │ │ │
-│ - Search Posts │────▶│ n8n │────▶│ AI Translation │
-│ - News Lookup │ │ Workflow │ │ (OpenAI, etc.) │
-└─────────────────────┘ └─────────────────┘ └─────────────────┘
-┌─────────────────────┐ │
-│ RSS Feeds │ │
-│ - IGN, GameSpot, │──────────────┘
-│ PC Gamer, etc. │ │
-└─────────────────────┘ ▼
-┌─────────────────┐
-┌─────────────────────┐ │ Telegram Bot │
-│ GitHub Actions │────▶│ (Publisher) │
-│ (Scheduler) │ └─────────────────┘
-└─────────────────────┘
-**How it works:**
-1. GitHub Actions triggers the n8n workflow on a schedule
-2. n8n fetches news from **X API** (search posts, news lookup) and **RSS feeds**
-3. Results are merged, deduplicated, and filtered by keywords
-4. Each article is sent to AI for translation
-5. Translated content is formatted and published to Telegram channels
+1. **GitHub Actions** triggers the n8n workflow on a schedule (e.g., every 2 hours)
+2. **n8n** fetches news from:
+   - **X API** (search posts, news lookup)
+   - **RSS feeds** (IGN, GameSpot, PC Gamer, etc.)
+3. Results are **merged**, **deduplicated**, and **filtered** by keywords
+4. Each article is sent to **AI** for translation
+5. Translated content is **formatted** and **published** to Telegram channels
 
 ---
 
@@ -156,4 +165,3 @@ You can also add traditional RSS feeds as a backup or additional source:
 ```bash
 git clone https://github.com/yourusername/game-news-bot.git
 cd game-news-bot
-
