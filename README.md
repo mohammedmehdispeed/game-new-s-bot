@@ -1,8 +1,32 @@
 # 🎮 Game News Bot
 
+> 🚧 **Work in Progress** — This project is under active development. Features are being added and improved regularly. Some components may be incomplete or subject to change.
+
+**Current Status:** Beta (v0.5.0)  
+**Last Updated:** July 2026  
+**Next Milestone:** v1.0 Stable Release
+
+---
+
 **Automated gaming news collector, translator, and publisher** — powered by AI, orchestrated with n8n, scheduled with GitHub Actions, and delivered via Telegram.
 
 > Fetch the latest gaming news from **X (Twitter)** and **RSS feeds** → Translate with AI → Publish to Telegram channels — all without human intervention.
+
+---
+
+## 📊 Project Status Overview
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| X (Twitter) API Integration | ✅ Complete | Fetching gaming news via search API |
+| RSS Feed Integration | ✅ Complete | Multiple gaming news sources |
+| AI Translation | ✅ Complete | OpenAI GPT integration |
+| Telegram Publishing | ✅ Complete | Channel and group support |
+| GitHub Actions Scheduling | ✅ Complete | Hourly automated runs |
+| **Multi-Language Support** | 🚧 In Progress | Adding support for 5+ languages |
+| **Discord Integration** | 📅 Planned | Q3 2026 |
+| **Web Dashboard** | 📅 Planned | Q4 2026 |
+| **Mobile App** | 💡 Idea | Future consideration |
 
 ---
 
@@ -22,6 +46,7 @@
 ---
 
 ## 🏗️ Architecture Overview
+
 ┌─────────────────────┐ ┌─────────────────┐ ┌─────────────────┐
 │ X (Twitter) API │ │ │ │ │
 │ - Search Posts │────▶│ n8n │────▶│ AI Translation │
@@ -131,9 +156,4 @@ You can also add traditional RSS feeds as a backup or additional source:
 ```bash
 git clone https://github.com/yourusername/game-news-bot.git
 cd game-news-bot
-## 🚧 Project Status
 
-This project is **under active development**. Features are being added and improved continuously.
-
-**Current Status:** Beta / MVP (Minimum Viable Product)
-**Next Milestone:** v1.0 Stable Release
