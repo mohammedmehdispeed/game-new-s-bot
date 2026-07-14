@@ -161,22 +161,18 @@ You can also add traditional RSS feeds as a backup or additional source:
 ## ⚙️ Installation
 
 ### 1. Clone the repository
-
 ```bash
 git clone https://github.com/yourusername/game-news-bot.git
 cd game-news-bot
-
+```
 ### 2. Install dependencies (if using helper scripts)
-
 ```bash
 npm install
 # or
 pip install -r requirements.txt
-
+```
 ### 3. Configure environment variables
-
 Create a `.env` file in the root directory and add the following configuration:
-
 <details>
 <summary>📋 Click to expand environment variables</summary>
 
@@ -202,3 +198,15 @@ N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/your-workflow
 # Optional
 GAME_FILTER=GTA,Cyberpunk,Starfield
 EXCLUDE_KEYWORDS=spam,advertisement
+```
+</details>
+
+> ⚠️ **Important**: Never commit your `.env` file to version control. Add it to `.gitignore`.
+
+### 4. Import the n8n workflow
+1. Open your n8n instance
+2. Import the workflow from `/workflows/game-news-bot.json`
+3. Configure the **X API HTTP Request** node with your Bearer Token
+4. Configure the **RSS HTTP Request** nodes with your feed URLs
+5. Set up the **Telegram** node with your bot token
+6. Activate the workflow
