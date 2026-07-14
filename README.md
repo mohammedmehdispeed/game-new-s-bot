@@ -165,3 +165,33 @@ You can also add traditional RSS feeds as a backup or additional source:
 ```bash
 git clone https://github.com/yourusername/game-news-bot.git
 cd game-news-bot
+
+### 3. Configure environment variables
+
+Create a `.env` file in the root directory and add the following configuration:
+
+<details>
+<summary>📋 Click to expand environment variables</summary>
+
+```env
+# Telegram
+TELEGRAM_BOT_TOKEN=your_bot_token_here
+TELEGRAM_CHANNEL_ID=@your_gaming_channel
+
+# AI Translation
+OPENAI_API_KEY=your_openai_key_here
+TRANSLATION_TARGET_LANGUAGE=English
+
+# X (Twitter) API
+X_BEARER_TOKEN=your_x_bearer_token_here
+X_SEARCH_QUERY=(gaming OR "video games" OR "game news") has:links lang:en -is:retweet -is:reply
+
+# RSS Feeds
+RSS_FEEDS=https://feeds.feedburner.com/ign/news,https://www.gamespot.com/feeds/news/
+
+# n8n
+N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/your-workflow
+
+# Optional
+GAME_FILTER=GTA,Cyberpunk,Starfield
+EXCLUDE_KEYWORDS=spam,advertisement
