@@ -166,6 +166,13 @@ You can also add traditional RSS feeds as a backup or additional source:
 git clone https://github.com/yourusername/game-news-bot.git
 cd game-news-bot
 
+### 2. Install dependencies (if using helper scripts)
+
+```bash
+npm install
+# or
+pip install -r requirements.txt
+
 ### 3. Configure environment variables
 
 Create a `.env` file in the root directory and add the following configuration:
